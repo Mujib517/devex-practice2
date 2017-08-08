@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
 
-    <dx:ASPxCallbackPanel Id="cbPanel" runat="server" ClientInstanceName="client_cbPanel" OnCallback="OnCallback">
+    <dx:ASPxCallbackPanel ID="cbPanel" runat="server" ClientInstanceName="client_cbPanel" OnCallback="OnCallback">
         <PanelCollection>
             <dx:PanelContent runat="server">
                 <dx:ASPxGridView ID="gvData" runat="server" AutoGenerateColumns="True" ClientInstanceName="client_gvData" KeyFieldName="Id" Width="100%">
@@ -14,13 +14,19 @@
                     <BorderBottom BorderWidth="1px" />
                     <Templates>
                         <EditForm>
-                            <dx:ASPxComboBox runat="server" ID="cb"></dx:ASPxComboBox>
-                            <dx:ASPxButton runat="server" ID="btn" AutoPostBack="False" Text="Popup">
-                                <ClientSideEvents Click="function(){popup.Show()}"></ClientSideEvents>
-                            </dx:ASPxButton>
-                            
-                            <dx:ASPxGridView runat="server" ID="gvEditData" AutoGenerateColumns="true">
-                            </dx:ASPxGridView>
+                            <dx:ASPxCallbackPanel ID="myPanel" runat="server" ClientInstanceName="client_myPanel" OnCallback="OnCallback">
+                                <PanelCollection>
+                                    <dx:PanelContent runat="server">
+                                        <dx:ASPxComboBox runat="server" ID="cb"></dx:ASPxComboBox>
+                                        <dx:ASPxButton runat="server" ID="btn" AutoPostBack="False" Text="Popup">
+                                            <ClientSideEvents Click="function(){popup.Show()}"></ClientSideEvents>
+                                        </dx:ASPxButton>
+
+                                        <dx:ASPxGridView runat="server" ID="gvEditData" AutoGenerateColumns="true">
+                                        </dx:ASPxGridView>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                            </dx:ASPxCallbackPanel>
                         </EditForm>
                     </Templates>
                 </dx:ASPxGridView>

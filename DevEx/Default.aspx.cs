@@ -47,8 +47,11 @@ namespace DevEx
 
                 var grid = cbPanel.FindControl("gvData") as ASPxGridView;
 
-                var cb = grid.FindEditFormTemplateControl("cb") as ASPxComboBox;
-                var gvEditData = grid.FindEditFormTemplateControl("gvEditData") as ASPxGridView;
+
+                var myPanel = grid.FindEditFormTemplateControl("myPanel") as ASPxCallbackPanel;
+                var cb = myPanel.FindControl("cb") as ASPxComboBox;
+                var gvEditData = myPanel.FindControl("gvEditData") as ASPxGridView;
+
                 cb.TextField = "Model";
                 cb.ValueField = "Id";
                 cb.DataSource = list;
